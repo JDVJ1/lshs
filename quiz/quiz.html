@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Laguna Senior High School</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <style>
+    /* Reset and base styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+        padding: 0px;
+    }
+
+    /* Container styles */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    /* Header styles */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Button styles */
+    .btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-outline {
+        background-color: white;
+        border: 1px solid #007bff;
+        color: #007bff;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+
+    /* Card styles */
+    .card {
+        height: 300px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin: 20px 0;
+        cursor: pointer;
+        perspective: 1000px;
+    }
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .card-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        font-size: 20px;
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        background-color: #f8f9fa;
+    }
+
+    /* Quiz mode styles */
+    .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .option-btn {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+        background: #f0f0f0;
+    }
+
+    .option-btn.correct {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+    }
+
+    .option-btn.incorrect {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+    }
+
+    /* Editor styles */
+    .editor-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-group label {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .input-field {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    /* Feedback styles */
+    .feedback {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .feedback.correct {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        color: #155724;
+    }
+
+    .feedback.incorrect {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid header_top_container">
+          <a class="navbar-brand " href="index.html"> Laguna<span>SHS</span> </a>
+          <div class="contact_nav">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Provincial Capitol Compound, Santa Cruz, Laguna
+              </span>
+            </a>
+            <a href="">
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                placeholder@gmail.com
+              </span>
+            </a>
+          </div>
+          <div class="social_box">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand navbar_brand_mobile" href="index.html"> Laguna<span>SHS</span> </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="abot.html"> About</a>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item">
+                    <span>
+                  <a class="nav-link" href="login.html">Login</a>
+                    </span>
+                  </a>
+                </li>
+                <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    <div class="container">
+      <div class="header">
+          <h1 class="title">Flashcards</h1>
+          <div class="button-group">
+              <button id="modeToggle" class="btn btn-outline">Switch to Quiz</button>
+              <button id="shuffleBtn" class="btn btn-outline">Shuffle</button>
+              <button id="addCardBtn" class="btn btn-outline">Add Card</button>
+              <button id="editCardBtn" class="btn btn-outline">Edit</button>
+          </div>
+      </div>
+
+      <div id="progressBar" class="progress-bar">
+          <span id="cardProgress">Card 1 of 1</span>
+          <span id="score">Score: 0/0</span>
+      </div>
+
+      <div id="cardContainer" class="card">
+          <div class="card-inner">
+              <div class="card-face card-front">
+                  <div id="questionText"></div>
+              </div>
+              <div class="card-face card-back">
+                  <div id="answerText"></div>
+              </div>
+          </div>
+      </div>
+
+      <div id="quizContainer" class="quiz-options" style="display: none;"></div>
+      <div id="feedbackContainer" class="feedback" style="display: none;"></div>
+
+      <div id="editorContainer" style="display: none;">
+          <form id="editorForm" class="editor-form">
+              <div class="input-group">
+                  <label for="questionInput">Question</label>
+                  <input type="text" id="questionInput" class="input-field" required>
+              </div>
+              <div class="input-group">
+                  <label for="answerInput">Answer</label>
+                  <input type="text" id="answerInput" class="input-field" required>
+              </div>
+              <div class="input-group">
+                  <label>Options</label>
+                  <input type="text" class="input-field option-input" placeholder="Option 1" required>
+                  <input type="text" class="input-field option-input" placeholder="Option 2" required>
+                  <input type="text" class="input-field option-input" placeholder="Option 3" required>
+                  <input type="text" class="input-field option-input" placeholder="Option 4" required>
+              </div>
+              <div class="input-group">
+                  <label for="explanationInput">Explanation</label>
+                  <textarea id="explanationInput" class="input-field" rows="3"></textarea>
+              </div>
+              <div class="button-group">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <button type="button" id="cancelEdit" class="btn btn-outline">Cancel</button>
+              </div>
+          </form>
+      </div>
+
+      <div class="button-group">
+          <button id="prevBtn" class="btn btn-outline">Previous</button>
+          <button id="nextBtn" class="btn btn-outline">Next</button>
+      </div>
+  </div>
+  <script>
+        class FlashcardQuiz {
+        constructor() {
+            this.cards = [
+                {
+                    question: "What is the capital of France?",
+                    answer: "Paris",
+                    options: ["London", "Paris", "Berlin", "Madrid"],
+                    explanation: "Paris has been France's capital since 508 CE."
+                },
+                {
+                    question: "Which planet is known as the Red Planet?",
+                    answer: "Mars",
+                    options: ["Venus", "Mars", "Jupiter", "Mercury"],
+                    explanation: "Mars appears red due to iron oxide (rust) on its surface."
+                },
+                {
+                    question: "What is 8 × 7?",
+                    answer: "56",
+                    options: ["48", "54", "56", "64"],
+                    explanation: "8 × 7 = 56 is one of the essential multiplication facts."
+                },
+                {
+                    question: "Who wrote 'Romeo and Juliet'?",
+                    answer: "William Shakespeare",
+                    options: ["Charles Dickens", "Jane Austen", "William Shakespeare", "Mark Twain"],
+                    explanation: "Shakespeare wrote this famous tragedy around 1595."
+                },
+                {
+                    question: "What is the chemical formula for water?",
+                    answer: "H₂O",
+                    options: ["CO₂", "H₂O", "O₂", "NaCl"],
+                    explanation: "Water consists of two hydrogen atoms and one oxygen atom."
+                },
+                {
+                    question: "Which language is primarily spoken in Brazil?",
+                    answer: "Portuguese",
+                    options: ["Spanish", "Portuguese", "English", "French"],
+                    explanation: "Brazil was colonized by Portugal, leading to Portuguese being the official language."
+                },
+                {
+                    question: "What is the largest mammal on Earth?",
+                    answer: "Blue Whale",
+                    options: ["African Elephant", "Blue Whale", "Giraffe", "Polar Bear"],
+                    explanation: "The Blue Whale can grow up to 100 feet long and weigh up to 200 tons."
+                },
+                {
+                    question: "In what year did World War II end?",
+                    answer: "1945",
+                    options: ["1943", "1944", "1945", "1946"],
+                    explanation: "WWII ended in 1945 with the surrender of Germany in May and Japan in August."
+                },
+                {
+                    question: "What is the square root of 144?",
+                    answer: "12",
+                    options: ["10", "11", "12", "14"],
+                    explanation: "12 × 12 = 144, making 12 the square root."
+                },
+                {
+                    question: "Who painted the Mona Lisa?",
+                    answer: "Leonardo da Vinci",
+                    options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+                    explanation: "Leonardo da Vinci painted the Mona Lisa in the early 16th century."
+                },
+                {
+                    question: "What is the main gas in Earth's atmosphere?",
+                    answer: "Nitrogen",
+                    options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+                    explanation: "Nitrogen makes up about 78% of Earth's atmosphere."
+                },
+                {
+                    question: "Which continent is the largest by land area?",
+                    answer: "Asia",
+                    options: ["North America", "Africa", "Asia", "Europe"],
+                    explanation: "Asia covers approximately 44.5 million square kilometers."
+                },
+                {
+                    question: "What is the capital of Japan?",
+                    answer: "Tokyo",
+                    options: ["Seoul", "Beijing", "Tokyo", "Bangkok"],
+                    explanation: "Tokyo has been Japan's capital since 1868."
+                },
+                {
+                    question: "Who developed the theory of relativity?",
+                    answer: "Albert Einstein",
+                    options: ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
+                    explanation: "Einstein published his theory of relativity in 1915."
+                },
+                {
+                    question: "What is the opposite of logarithm?",
+                    answer: "Exponential",
+                    options: ["Division", "Subtraction", "Exponential", "Square Root"],
+                    explanation: "Logarithms and exponentials are inverse functions of each other."
+                }
+            ];
+            this.currentIndex = 0;
+            this.score = 0;
+            this.mode = 'cards';
+            this.initializeElements();
+            this.addEventListeners();
+            this.updateCard();
+        }
+
+        // Rest of the JavaScript class implementation remains exactly the same
+    }
+
+    // Initialize the quiz when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        const quiz = new FlashcardQuiz();
+    });
+    class FlashcardQuiz {
+        constructor() {
+            this.cards = [
+                {
+                    question: "What is the capital of France?",
+                    answer: "Paris",
+                    options: ["London", "Paris", "Berlin", "Madrid"],
+                    explanation: "Paris has been France's capital since 508 CE."
+                },
+                {
+                    question: "What is the largest planet in our solar system?",
+                    answer: "Jupiter",
+                    options: ["Mars", "Saturn", "Jupiter", "Neptune"],
+                    explanation: "Jupiter is the largest planet, with a mass more than twice that of Saturn."
+                },
+                {
+                    question: "What is the chemical symbol for gold?",
+                    answer: "Au",
+                    options: ["Ag", "Au", "Fe", "Cu"],
+                    explanation: "Au comes from the Latin word for gold, 'aurum'."
+                }
+            ];
+            this.currentIndex = 0;
+            this.score = 0;
+            this.mode = 'cards'; // 'cards' or 'quiz'
+            this.initializeElements();
+            this.addEventListeners();
+            this.updateCard();
+        }
+
+        initializeElements() {
+            // Get all necessary DOM elements
+            this.elements = {
+                cardContainer: document.getElementById('cardContainer'),
+                quizContainer: document.getElementById('quizContainer'),
+                questionText: document.getElementById('questionText'),
+                answerText: document.getElementById('answerText'),
+                modeToggle: document.getElementById('modeToggle'),
+                prevBtn: document.getElementById('prevBtn'),
+                nextBtn: document.getElementById('nextBtn'),
+                shuffleBtn: document.getElementById('shuffleBtn'),
+                addCardBtn: document.getElementById('addCardBtn'),
+                editCardBtn: document.getElementById('editCardBtn'),
+                editorContainer: document.getElementById('editorContainer'),
+                editorForm: document.getElementById('editorForm'),
+                cancelEdit: document.getElementById('cancelEdit'),
+                cardProgress: document.getElementById('cardProgress'),
+                score: document.getElementById('score'),
+                feedbackContainer: document.getElementById('feedbackContainer')
+            };
+        }
+
+        addEventListeners() {
+            // Add click handlers for all buttons
+            this.elements.cardContainer.addEventListener('click', () => this.flipCard());
+            this.elements.modeToggle.addEventListener('click', () => this.toggleMode());
+            this.elements.prevBtn.addEventListener('click', () => this.previousCard());
+            this.elements.nextBtn.addEventListener('click', () => this.nextCard());
+            this.elements.shuffleBtn.addEventListener('click', () => this.shuffleCards());
+            this.elements.addCardBtn.addEventListener('click', () => this.showEditor());
+            this.elements.editCardBtn.addEventListener('click', () => this.showEditor(true));
+            this.elements.cancelEdit.addEventListener('click', () => this.hideEditor());
+            this.elements.editorForm.addEventListener('submit', (e) => this.saveCard(e));
+        }
+
+        updateCard() {
+            const card = this.cards[this.currentIndex];
+            this.elements.questionText.textContent = card.question;
+            this.elements.answerText.textContent = card.answer;
+            this.elements.cardProgress.textContent = `Card ${this.currentIndex + 1} of ${this.cards.length}`;
+            this.elements.score.textContent = `Score: ${this.score}/${this.cards.length}`;
+            this.updateQuizOptions();
+            this.updateNavigationButtons();
+        }
+
+        updateQuizOptions() {
+            if (this.mode === 'quiz') {
+                this.elements.quizContainer.innerHTML = '';
+                const card = this.cards[this.currentIndex];
+                card.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.className = 'option-btn';
+                    button.textContent = option;
+                    button.addEventListener('click', () => this.checkAnswer(option));
+                    this.elements.quizContainer.appendChild(button);
+                });
+            }
+        }
+
+        updateNavigationButtons() {
+            this.elements.prevBtn.disabled = this.currentIndex === 0;
+            this.elements.nextBtn.disabled = this.currentIndex === this.cards.length - 1;
+        }
+
+        flipCard() {
+            if (this.mode === 'cards') {
+                this.elements.cardContainer.classList.toggle('flipped');
+            }
+        }
+
+        toggleMode() {
+            this.mode = this.mode === 'cards' ? 'quiz' : 'cards';
+            this.elements.modeToggle.textContent = `Switch to ${this.mode === 'cards' ? 'Quiz' : 'Cards'}`;
+            this.elements.quizContainer.style.display = this.mode === 'quiz' ? 'block' : 'none';
+            this.elements.cardContainer.style.display = this.mode === 'cards' ? 'block' : 'none';
+            this.elements.feedbackContainer.style.display = 'none';
+            this.updateCard();
+        }
+
+        checkAnswer(selected) {
+            const card = this.cards[this.currentIndex];
+            const correct = selected === card.answer;
+            const buttons = this.elements.quizContainer.querySelectorAll('.option-btn');
+            
+            buttons.forEach(button => {
+                button.disabled = true;
+                if (button.textContent === selected) {
+                    button.classList.add(correct ? 'correct' : 'incorrect');
+                } else if (button.textContent === card.answer) {
+                    button.classList.add('correct');
+                }
+            });
+
+            this.elements.feedbackContainer.textContent = `${correct ? 'Correct!' : 'Incorrect.'} ${card.explanation}`;
+            this.elements.feedbackContainer.className = `feedback ${correct ? 'correct' : 'incorrect'}`;
+            this.elements.feedbackContainer.style.display = 'block';
+
+            if (correct) this.score++;
+            this.elements.score.textContent = `Score: ${this.score}/${this.cards.length}`;
+        }
+
+        previousCard() {
+            if (this.currentIndex > 0) {
+                this.currentIndex--;
+                this.elements.cardContainer.classList.remove('flipped');
+                this.elements.feedbackContainer.style.display = 'none';
+                this.updateCard();
+            }
+        }
+
+        nextCard() {
+            if (this.currentIndex < this.cards.length - 1) {
+                this.currentIndex++;
+                this.elements.cardContainer.classList.remove('flipped');
+                this.elements.feedbackContainer.style.display = 'none';
+                this.updateCard();
+            }
+        }
+
+        shuffleCards() {
+            for (let i = this.cards.length - 1; i > 0; i--) {shuffleCards() {
+                for (let i = this.cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+                }
+                this.currentIndex = 0;
+                this.score = 0;
+                this.elements.cardContainer.classList.remove('flipped');
+                this.elements.feedbackContainer.style.display = 'none';
+                this.updateCard();
+            }
+
+            showEditor(isEditing = false) {
+                this.elements.cardContainer.style.display = 'none';
+                this.elements.quizContainer.style.display = 'none';
+                this.elements.editorContainer.style.display = 'block';
+                
+                if (isEditing) {
+                    const card = this.cards[this.currentIndex];
+                    document.getElementById('questionInput').value = card.question;
+                    document.getElementById('answerInput').value = card.answer;
+                    document.getElementById('explanationInput').value = card.explanation;
+                    
+                    const optionInputs = document.querySelectorAll('.option-input');
+                    card.options.forEach((option, index) => {
+                        optionInputs[index].value = option;
+                    });
+                } else {
+                    this.elements.editorForm.reset();
+                }
+            }
+
+            hideEditor() {
+                this.elements.editorContainer.style.display = 'none';
+                this.elements.cardContainer.style.display = 'block';
+                if (this.mode === 'quiz') {
+                    this.elements.quizContainer.style.display = 'block';
+                }
+            }
+
+            saveCard(event) {
+                event.preventDefault();
+                
+                const newCard = {
+                    question: document.getElementById('questionInput').value,
+                    answer: document.getElementById('answerInput').value,
+                    explanation: document.getElementById('explanationInput').value,
+                    options: Array.from(document.querySelectorAll('.option-input'))
+                        .map(input => input.value)
+                };
+
+                // Validate that the answer is included in the options
+                if (!newCard.options.includes(newCard.answer)) {
+                    alert('The correct answer must be one of the options!');
+                    return;
+                }
+
+                if (this.elements.editCardBtn.textContent === 'Save') {
+                    // Editing existing card
+                    this.cards[this.currentIndex] = newCard;
+                } else {
+                    // Adding new card
+                    this.cards.push(newCard);
+                    this.currentIndex = this.cards.length - 1;
+                }
+
+                this.hideEditor();
+                this.updateCard();
+            }
+
+            // Method to save cards to localStorage
+            saveToLocalStorage() {
+                localStorage.setItem('flashcards', JSON.stringify(this.cards));
+            }
+
+            // Method to load cards from localStorage
+            loadFromLocalStorage() {
+                const savedCards = localStorage.getItem('flashcards');
+                if (savedCards) {
+                    this.cards = JSON.parse(savedCards);
+                    this.updateCard();
+                }
+            }
+
+            // Method to export cards as JSON
+            exportCards() {
+                const dataStr = JSON.stringify(this.cards, null, 2);
+                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
+                
+                const exportLink = document.createElement('a');
+                exportLink.setAttribute('href', dataUri);
+                exportLink.setAttribute('download', 'flashcards.json');
+                exportLink.click();
+            }
+
+            // Method to import cards from JSON file
+            importCards(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const cards = JSON.parse(e.target.result);
+                        if (Array.isArray(cards) && cards.every(card => 
+                            card.question && card.answer && card.options && card.explanation
+                        )) {
+                            this.cards = cards;
+                            this.currentIndex = 0;
+                            this.score = 0;
+                            this.updateCard();
+                            this.saveToLocalStorage();
+                        } else {
+                            alert('Invalid flashcard format');
+                        }
+                    } catch (error) {
+                        alert('Error importing cards: ' + error.message);
+                    }
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Initialize the quiz when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const quiz = new FlashcardQuiz();
+            quiz.loadFromLocalStorage(); // Load saved cards if any exist
+
+            // Add file import functionality
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.json';
+            fileInput.style.display = 'none';
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    quiz.importCards(e.target.files[0]);
+                }
+            });
+            document.body.appendChild(fileInput);
+
+            // Save cards when the window is closed
+            window.addEventListener('beforeunload', () => {
+                quiz.saveToLocalStorage();
+            });
+        });
+    </script>
+    
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!--  OwlCarousel 2 - Filter -->
+  <script src="https://huynhhuynh.github.io/owlcarousel2-filter/dist/owlcarousel2-filter.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
