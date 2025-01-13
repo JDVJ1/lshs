@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="generator" content="astro.generator">
+
+  <title>Laguna Senior High School</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/stylelib.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: 'Arial', sans-serif;
+      }
+
+      body {
+          background-color: #f1f5f9;
+          min-height: 100vh;
+          padding: 0rem;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .header {
+          margin-bottom: 2rem;
+          text-align: center;
+      }
+
+      .header h1 {
+          color: #1e293b;
+          font-size: 2.5rem;
+          margin-bottom: 0.5rem;
+      }
+
+      .header p {
+          color: #64748b;
+      }
+
+      .subjects-grid {
+          display: row;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+      }
+
+      .subject-card {
+          background: white;
+          border-radius: 1rem;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.2s;
+      }
+
+      .subject-header {
+          padding: 1.5rem;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #3b82f6;
+          color: white;
+      }
+
+      .subject-header h2 {
+          font-size: 1.25rem;
+      }
+
+      .subject-icon {
+          width: 24px;
+          height: 24px;
+          transition: transform 0.3s;
+      }
+
+      .subject-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+      }
+
+      .subject-content.active {
+          max-height: 1000px;
+      }
+
+      .lessons-list {
+          list-style: none;
+          padding: 1rem;
+      }
+
+      .lesson-item {
+          padding: 1rem;
+          border-bottom: 1px solid #e2e8f0;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          transition: background-color 0.2s;
+      }
+
+      .lesson-item:last-child {
+          border-bottom: none;
+      }
+
+      .lesson-item:hover {
+          background-color: #f8fafc;
+      }
+
+      .lesson-icon {
+          margin-right: 1rem;
+          color: #64748b;
+      }
+
+      .lesson-info {
+          flex-grow: 1;
+      }
+
+      .lesson-title {
+          font-weight: 600;
+          color: #1e293b;
+          margin-bottom: 0.25rem;
+      }
+
+      .lesson-description {
+          font-size: 0.875rem;
+          color: #64748b;
+      }
+
+      .rotate-icon {
+          transform: rotate(180deg);
+      }
+
+      /* Subject-specific colors */
+      .subject-math { background-color: #3b82f6; }
+      .subject-science { background-color: #22c55e; }
+      .subject-english { background-color: #f59e0b; }
+      .subject-history { background-color: #ec4899; }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid header_top_container">
+          <a class="navbar-brand " href="index.html"> Laguna<span>SHS</span> </a>
+          <div class="contact_nav">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Provincial Capitol Compound, Santa Cruz, Laguna
+              </span>
+            </a>
+            <a href="">
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                placeholder@gmail.com
+              </span>
+            </a>
+          </div>
+          <div class="social_box">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand navbar_brand_mobile" href="index.html"> Laguna<span>SHS</span> </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html"> About</a>
+                </li>
+                <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <span>
+                  <a class="nav-link" href="login.html">Login</a>
+                    </span>
+                  </a>
+                </li>
+                <form class="form-inline">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    <div class="container">
+      <div class="header">
+          <h1>Lesson Library</h1>
+          <p>Explore your subjects and lessons</p>
+      </div>
+
+      <div class="subjects-grid">
+          <!-- Mathematics -->
+          <div class="subject-card">
+              <div class="subject-header subject-math" onclick="toggleSubject(this)">
+                  <h2><i class="fas fa-calculator lesson-icon"></i> Genera Physics 2</h2>
+                  <i class="fas fa-chevron-down subject-icon"></i>
+              </div>
+              <div class="subject-content">
+                  <ul class="lessons-list">
+                      <li class="lesson-item" onclick="openLesson('physics', 'CLMB')">
+                          <i class="fas fa-square-root-alt lesson-icon"></i>
+                          <div class="lesson-info">
+                              <div class="lesson-title">Columbs Law</div>
+                              <div class="lesson-description">Calculate the Electric Field Due to a system of point charges</div>
+                          </div>
+                      </li>
+
+                  </ul>
+              </div>
+          </div>
+
+          <!-- Science -->
+          <div class="subject-card">
+              <div class="subject-header subject-science" onclick="toggleSubject(this)">
+                  <h2><i class="fas fa-flask lesson-icon"></i> General Chemistry 2</h2>
+
+              </div>
+              <div class="subject-content">
+                  <ul class="lessons-list">
+
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- English -->
+          <div class="subject-card">
+              <div class="subject-header subject-english" onclick="toggleSubject(this)">
+                  <h2><i class="fas fa-book lesson-icon"></i> Inquaries, Investigations, and Immersion</h2>
+                  <i class="fas fa-chevron-down subject-icon"></i>
+              </div>
+              <div class="subject-content">
+                  <ul class="lessons-list">
+                      <li class="lesson-item" onclick="openLesson('english', 'grammar')">
+
+
+                      </li>
+                  </ul>
+              </div>
+          </div>
+
+          <!-- History -->
+          <div class="subject-card">
+              <div class="subject-header subject-history" onclick="toggleSubject(this)">
+                  <h2><i class="fas fa-landmark lesson-icon"></i> Empowerment Technology</h2>
+                  <i class="fas fa-chevron-down subject-icon"></i>
+              </div>
+              <div class="subject-content">
+                  <ul class="lessons-list">
+                      <li class="lesson-item" onclick="openLesson('history', 'world')">
+
+                          <div class="lesson-info">
+
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      function toggleSubject(element) {
+          const content = element.nextElementSibling;
+          const icon = element.querySelector('.subject-icon');
+          
+          // Toggle the content
+          content.classList.toggle('active');
+          
+          // Rotate the icon
+          icon.classList.toggle('rotate-icon');
+          
+          // Close other subject contents
+          const allContents = document.querySelectorAll('.subject-content');
+          const allIcons = document.querySelectorAll('.subject-icon');
+          
+          allContents.forEach((item) => {
+              if (item !== content && item.classList.contains('active')) {
+                  item.classList.remove('active');
+              }
+          });
+          
+          allIcons.forEach((item) => {
+              if (item !== icon && item.classList.contains('rotate-icon')) {
+                  item.classList.remove('rotate-icon');
+              }
+          });
+      }
+
+      function openLesson(subject, lesson) {
+          // This function would handle opening the specific lesson
+          // You can modify this to integrate with your lesson viewing system
+          console.log(`Opening ${lesson} lesson in ${subject}`);
+          alert(`Opening lesson: ${lesson} in ${subject}`);
+          window.location.href = `${lesson}.html`;
+          
+      }
+  </script>
+  <!-- info section -->
+
+  <section class="info_section ">
+    <div class="info_container layout_padding2">
+      <div class="container">
+        <div class="info_logo">
+          <a class="navbar-brand" href="index.html"> Laguna<span>SHS</span> </a>
+        </div>
+        <div class="info_main">
+          <div class="row">
+            <div class="col-md-3 col-lg-2">
+              <div class="info_link-box">
+                <h5>
+                  Useful Link
+                </h5>
+                <ul>
+                  <li class=" active">
+                    <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="">
+                    <a class="" href="about.html">About </a>
+                  </li>
+                  <li class="">
+                    <a class="" href="service.html">Services </a>
+                  </li>
+                  <li class="">
+                    <a class="" href="portfolio.html"> Portfolio </a>
+                  </li>
+                  <li class="">
+                    <a class="" href="contact.html"> Contact </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 ">
+            </div>
+            <div class="col-md-3 mx-auto  ">
+              <h5>
+                social media
+              </h5>
+              <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3">
+            </div>
+          </div>
+        </div>
+        <div class="info_bottom">
+          <div class="row">
+            <div class="col-lg-9">
+              <div class="info_contact ">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a href="#" class="link-box">
+                      <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      <span>
+                        Location
+                      </span>
+                    </a>
+                  </div>
+                  <div class="col-md-5">
+                    <a href="#" class="link-box">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                      <span>
+                        Call +01 1234567890
+                      </span>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#" class="link-box">
+                      <i class="fa fa-envelope" aria-hidden="true"></i>
+                      <span>
+                        demo@gmail.com
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="info_form ">
+                <form action="">
+                  <input type="email" placeholder="Enter Your Email" />
+                  <button>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!--  OwlCarousel 2 - Filter -->
+  <script src="https://huynhhuynh.github.io/owlcarousel2-filter/dist/owlcarousel2-filter.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+  <!-- End Google Map -->
+
+  </body>
+</html>
